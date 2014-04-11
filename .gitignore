@@ -42,13 +42,20 @@ coverage.xml
 .project
 .pydevproject
 
-# Rope
-.ropeproject
+# emacs
+*~
+\#*#
+.#*
 
-# Django stuff:
-*.log
-*.pot
+# my development cruft
 
-# Sphinx documentation
-docs/_build/
+# compiled sls files
+*.slsc
+
+# vagrant stuff
+.vagrant
+
+/cache
+/cache-bootstrap.tar.gz
+/vagrant/debrepos
 
