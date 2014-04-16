@@ -7,3 +7,4 @@ base:
     - default
   'testmachine':
     - default
+    - testmachine
