@@ -4,7 +4,7 @@ apt-packages:
   pkg.installed:
     - pkgs:
       - aptitude
-      - grep-dctrl
+      - dctrl-tools
 
 %if 'paella_server_ip' in pillar:
 host-paella:

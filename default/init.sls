@@ -13,12 +13,23 @@ pager:
 
 emacs:
   pkg.installed:
-    - name: emacs23
+    - pkgs:
+      - emacs23
+      - mmm-mode
+      - emacs-goodies-el
+
+local-editor:
+  file.managed:
+    - name: /usr/local/bin/editor
+    - source: salt://default/local-editor.sh
+    - mode: 755
+    - require:
+      - pkg: emacs
 
 screen:
   pkg:
     - installed
-
+%if pillar['packages']['base_admin_tools']:
 base-admin-tools:
   pkg.installed:
     - pkgs:
@@ -49,5 +60,40 @@ base-admin-tools:
       - screen 
       - slay 
       - strace
-      
-      
+%endif
+
+
+%if pillar['packages']['debian_admin_tools']:
+debian_admin_tools:
+  pkg.installed:
+    - pkgs:
+      - apt-listchanges
+      - dctrl-tools
+      - debconf-utils
+      - debian-goodies
+      - dselect
+      - rcconf
+      - reportbug
+%endif
+
+%if pillar['packages']['acpi_packages']:
+acpi_packages:
+  pkg.installed:
+    - pkgs:
+      - acpid
+      - acpi-support-base
+%endif
+  
+
+default-packages:
+  pkg.installed:
+    - pkgs:
+      - bible-kjv
+      - bible-kjv-text
+      - fortunes
+      - gnupg-agent
+      - ntp
+      - pinentry-curses
+      - etckeeper
+
+
