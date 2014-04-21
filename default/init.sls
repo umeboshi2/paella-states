@@ -1,5 +1,9 @@
 # -*- mode: yaml -*-
 
+include:
+  - apt
+
+
 pager:
   pkg.installed:
     - name: most
@@ -15,8 +19,35 @@ screen:
   pkg:
     - installed
 
-host-paella:
-  host.present:
-    - ip: ${pillar['paella_server_ip']}
-    - names:
-      - paella
+base-admin-tools:
+  pkg.installed:
+    - pkgs:
+      - acl 
+      - atop 
+      - attr 
+      - bash-completion 
+      - bsdtar 
+      - bzip2 
+      - cabextract 
+      - fdupes 
+      - gawk 
+      - htop 
+      - iotop 
+      - keychain 
+      - logcheck 
+      - lrzsz 
+      - lsof 
+      - ltrace 
+      - members 
+      - minicom 
+      - most 
+      - openssh-client 
+      - p7zip-full 
+      - pbzip2 
+      - pigz 
+      - rsync 
+      - screen 
+      - slay 
+      - strace
+      
+      
