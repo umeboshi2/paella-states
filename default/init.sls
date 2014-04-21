@@ -15,3 +15,8 @@ screen:
   pkg:
     - installed
 
+host-paella:
+  host.present:
+    - ip: ${pillar['paella_server_ip']}
+    - names:
+      - paella
