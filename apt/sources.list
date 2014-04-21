@@ -1,0 +1,23 @@
+
+<% apt = pillar['apt'] %>
+
+# main repository
+%if apt['enable_local_mirror']:
+deb ${apt['local_mirror_url']} ${apt['local_mirror_dist']} ${apt['local_mirror_areas']}
+%fi
+
+%if apt['enable_official_mirror']:
+deb ${apt['official_mirror_url']} ${apt['official_mirror_dist']} ${apt['official_mirror_areas']}
+%fi
+
+
+# security updates
+%if apt['enable_local_security_mirror']:
+deb ${apt['local_security_mirror_url']} ${apt['local_security_mirror_dist']} ${apt['local_security_mirror_areas']}
+%fi
+
+%if apt['enable_official_security_mirror']:
+deb ${apt['official_security_mirror_url']} ${apt['official_security_mirror_dist']} ${apt['official_security_mirror_areas']}
+%fi
+
+

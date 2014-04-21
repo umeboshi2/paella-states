@@ -1,5 +1,9 @@
 # -*- mode: yaml -*-
 
+include:
+  - apt
+
+
 devpackages:
   pkg.installed:
     - pkgs:
