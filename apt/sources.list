@@ -20,4 +20,7 @@ deb ${apt['local_security_mirror_url']} ${apt['local_security_mirror_dist']} ${a
 deb ${apt['official_security_mirror_url']} ${apt['official_security_mirror_dist']} ${apt['official_security_mirror_areas']}
 %fi
 
+%if apt['enable_salt_repository']:
+deb ${apt['salt_repository_url']} wheezy-saltstack main
+%fi
 
