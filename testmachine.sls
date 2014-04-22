@@ -2,6 +2,7 @@
 
 include:
   - apt
+  - server
 
 
 devpackages:

@@ -3,6 +3,9 @@
 include:
   - apt
 
+/etc/skel/.dircolors:
+  file.managed:
+    - source: salt://default/dircolors
 
 pager:
   pkg.installed:

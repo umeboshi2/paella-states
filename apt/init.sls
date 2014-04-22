@@ -22,7 +22,7 @@ sources-list:
     - template: mako
 
 update-apt:
-  cmd.run:
+  cmd.wait:
     - name: apt-get -y update
     - watch:
       - file: sources-list
