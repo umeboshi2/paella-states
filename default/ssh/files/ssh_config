@@ -1,4 +1,4 @@
-<% ssh = pillar['ssh'] %>
+{% set pget = salt['pillar.get'] %}
 # This is the ssh client system-wide configuration file.  See
 # ssh_config(5) for more information.  This file provides defaults for
 # users, and the values can be changed in per-user configuration files
@@ -48,7 +48,7 @@ Host *
 #   VisualHostKey no
 #   ProxyCommand ssh -q -W %h:%p gateway.example.com
     SendEnv LANG LC_*
-    HashKnownHosts ${ssh['hash_known_hosts']}
+    HashKnownHosts {{ pget('ssh:hash_known_hosts') }}
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
     ForwardAgent no

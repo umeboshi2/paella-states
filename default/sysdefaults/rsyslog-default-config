@@ -1,0 +1,10 @@
+# Options for rsyslogd
+# -x disables DNS lookups for remote messages
+# -c compatibility mode
+# See rsyslogd(8) for more details
+#RSYSLOGD_OPTIONS="-c5"
+<% pget = salt['pillar.get'] %>
+<% key = 'rsyslogd_options' %>
+<% value = pget('rsyslog:%s' % key, '-c5') %>
+${key.upper()}="${value}"
+
