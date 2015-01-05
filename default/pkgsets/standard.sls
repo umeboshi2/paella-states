@@ -38,7 +38,7 @@ base-admin-tools:
 {% endif %}
 
 
-{% if pget('pkgsets:debian_admin_tools', True): %}
+{% if pget('pkgsets:debian_admin_tools', False): %}
 debian_admin_tools:
   pkg.installed:
     - pkgs:

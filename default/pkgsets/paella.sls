@@ -9,10 +9,11 @@ include:
 {% if pget('pkgsets:paella:basic-tools', False): %}
 basic-tools:
   pkg.installed:
-    - screen
-    - iotop
-    - htop
-    - rsync
+    - pkgs:
+      - screen
+      - iotop
+      - htop
+      - rsync
 {% endif %}
 
 {% if pget('pkgsets:paella:devpackages', False): %}
@@ -110,7 +111,7 @@ bootloader-packages:
       - ipxe
 {% endif %}
       
-{% if pget('pkgsets:paella:bootloader-disktools', False): %}
+{% if pget('pkgsets:paella:installer-disktools', False): %}
 disk-tools:
   pkg.installed:
     - pkgs:
@@ -123,14 +124,6 @@ disk-tools:
 {% endif %}
       
   
-{% if pget('pkgsets:paella:debrepos-support', False): %}
-python-debrepos-support-packages:
-  pkg.installed:
-    - pkgs:
-      - python-libtorrent
-      - python-feedparser
-{% endif %}
-
 {% if pget('pkgsets:paella:mingw-packages', False): %}
 # These may not be necessary, but are here in case
 # it's easier to build some of the salt-minion dependencies
@@ -221,6 +214,14 @@ germinate:
     - installed
 {% endif %}
 
+{% if pget('pkgsets:paella:debrepos-support', False): %}
+python-debrepos-support-packages:
+  pkg.installed:
+    - pkgs:
+      - python-libtorrent
+      - python-feedparser
+{% endif %}
+
 {% if pget('pkgsets:paella:postgresql', False): %}
 postgresql-support-packages:
   pkg.installed:
@@ -256,8 +257,8 @@ shorewall-package:
 
 {% if pget('pkgsets:paella:nfsd', False): %}
 nfs-kernel-server-package:
-  pkg:
-    - installed
+  pkg.installed:
+    - name: nfs-kernel-server
 {% endif %}
 
 
@@ -283,7 +284,7 @@ samba-server-package:
 {% endif %}
 
 
-{% if pget('pkgsets:paella:samba', False): %}
+{% if pget('pkgsets:paella:schroot', False): %}
 schroot-packages:
   pkg.installed:
     - pkgs:
