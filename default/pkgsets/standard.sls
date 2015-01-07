@@ -1,6 +1,8 @@
 # -*- mode: yaml -*-
 {% set pget = salt['pillar.get'] %}
 
+#FIXME rearrange all of this
+
 include:
   - default.base
   
@@ -57,6 +59,7 @@ acpi_packages:
     - pkgs:
       - acpid
       - acpi-support-base
+      - acpitool
 {% endif %}
 
 {% if pget('pkgsets:default_packages', False): %}
@@ -73,3 +76,52 @@ default-packages:
       # FIXME
       - pgpdump
 {% endif %}
+
+  
+{% if pget('pkgsets:acpi_packages', False): %}
+acpi_packages:
+  pkg.installed:
+    - pkgs:
+      - acpid
+      - acpi-support-base
+{% endif %}
+
+  
+{% if pget('pkgsets:base_hardware', False): %}
+base-hardware:
+  pkg.installed:
+    - pkgs:
+      - dmidecode
+      - hddtemp
+      - lm-sensors
+      - sdparm
+      - usbutils
+{% endif %}
+
+
+
+{% if pget('pkgsets:base_firmware', False): %}
+{% set extra = pget('pkgsets:extra_firmware_packages', []) %}
+firmware-packages:
+  pkg.installed:
+    - requires:
+      - pkg: base-hardware
+    - pkgs:
+      - firmware-linux
+      - firmware-linux-nonfree
+      {% for pkg in extra: %}
+      - {{ pkg }}
+      {% endfor %}
+{% endif %}
+
+{% if pget('pkgsets:laptop', False): %}
+laptop-hardware:
+  pkg.installed:
+    - requires:
+      - pkg: base-hardware
+    - pkgs:
+      - hibernate
+      - fancontrol
+      - task-laptop
+{% endif %}
+

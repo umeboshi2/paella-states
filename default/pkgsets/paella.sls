@@ -193,7 +193,9 @@ apache-support-packages:
       - libapache2-mod-wsgi
       - apache2-mpm-worker
       - apache2-utils
+{% endif %}
 
+{% if pget('pkgsets:paella:apache', False): %}
 apache-package:
   pkg.installed:
     - name: apache2
