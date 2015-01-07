@@ -62,6 +62,18 @@ misc-packages:
       - cowsay
 {% endif %}
 
+{% if pget('pkgsets:paella:driverpacks-support', False): %}
+# The driverpacks are distributed through bittorrent.  There is a
+# python script to do this, but rtorrent is being installed anyway,
+# just in case it becomes necessary.
+
+# FIXME driverpacks still unsupported
+driverpack-support-packages:
+  pkg.installed:
+    - pkgs:
+        - rtorrent
+{% endif %}
+
 {% if pget('pkgsets:paella:deb-keyring-builddeps', False): %}
 debian-archive-keyring-build-depends:
   pkg.installed:
