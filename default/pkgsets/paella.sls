@@ -112,7 +112,7 @@ bootloader-packages:
 {% endif %}
       
 {% if pget('pkgsets:paella:installer-disktools', False): %}
-disk-tools:
+installer-disktools:
   pkg.installed:
     - pkgs:
       - parted
