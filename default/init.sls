@@ -4,6 +4,7 @@
 include:
   - default.base
   - default.sysdefaults
+  - default.timezone
   - default.pager
   - default.editor
   - default.pkgsets
