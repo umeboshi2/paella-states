@@ -6,6 +6,7 @@ include:
   - default.sysdefaults
   - default.timezone
   - default.adduser
+  - default.dhclient
   - default.pager
   - default.editor
   - default.pkgsets
