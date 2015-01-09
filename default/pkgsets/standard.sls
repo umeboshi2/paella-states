@@ -37,6 +37,7 @@ base-admin-tools:
       - screen 
       - slay 
       - strace
+      - sysv-rc-conf
 {% endif %}
 
 
@@ -49,7 +50,6 @@ debian_admin_tools:
       - debconf-utils
       - debian-goodies
       - dselect
-      - rcconf
       - reportbug
 {% endif %}
 

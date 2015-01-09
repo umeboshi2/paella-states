@@ -5,6 +5,7 @@ include:
   - default.base
   - default.sysdefaults
   - default.timezone
+  - default.adduser
   - default.pager
   - default.editor
   - default.pkgsets
