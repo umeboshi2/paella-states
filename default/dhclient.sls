@@ -4,6 +4,6 @@
 
 dhclient-config-file:
   file.managed:
-    - name: /etc/dhcp/dhclient.conf.test
+    - name: /etc/dhcp/dhclient.conf
     - source: salt://default/files/dhclient.conf
     - template: jinja
