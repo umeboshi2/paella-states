@@ -1,10 +1,13 @@
 # KEYBOARD CONFIGURATION FILE
-## the python blocks leave emtpy lines
-<% pget = salt['pillar.get'] %>\
-<% defaults = dict(xkbmodel='pc105', xkblayout='us', xkbvariant='', xkboptions='', backspace='guess') %>\
+{% set pget = salt['pillar.get'] %}
+{%- load_yaml as defaults -%}
+xkbmodel: pc105
+xkblayout: us
+xkbvariant: ''
+xkboptions: ''
+backspace: guess
+{%- endload -%}
 # Consult the keyboard(5) manual page.
-%for key in defaults:
-<% pkey = 'keyboard:%s' % key %>\
-${key.upper()}="${pget(pkey, defaults[key])}"
-%endfor
-
+{% for key, value in defaults.items() -%}
+  {{ key.upper() }}="{{ pget('keyboard:%s' % key, defaults.get(key)) }}"
+{% endfor -%}

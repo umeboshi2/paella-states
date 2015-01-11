@@ -1,16 +1,13 @@
 # CONFIGURATION FILE FOR SETUPCON
-<% pget = salt['pillar.get'] %>
-# Consult the console-setup(5) manual page.
-<% defaults = dict(active_consoles='/dev/tty[1-6]', charmap='UTF-8',
-   codeset='Lat15', fontface='Fixed', fontsize='8x16') %>
-
-%for key in defaults:
-${key.upper()}="${pget('console-setup:%s' % key, defaults[key])}"
-
-%endfor
-
-<% key = 'videomode' %>
-${key.upper()}=${pget('console-setup:%s' % key, '')}
-
-# The following is an example how to use a braille font
-# FONT='lat9w-08.psf.gz brl-8x8.psf'
+{% set pget = salt['pillar.get'] -%}
+{%- load_yaml as defaults -%}
+consoles: '/dev/tty[1-6]'
+charmap: UTF-8
+codeset: Lat15
+fontface: Fixed
+fontsize: 8x16
+videomode: ''
+{%- endload -%}
+{%- for key in defaults -%}
+{{ key.upper() }}="{{ pget('console-setup:%s' % key, defaults.get(key)) }}"
+{% endfor -%}

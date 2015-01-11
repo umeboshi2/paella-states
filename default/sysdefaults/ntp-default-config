@@ -1,5 +1,5 @@
-<% pget = salt['pillar.get'] %>
-<% key = 'ntpd_opts' %>
-<% value = pget('ntp:%s' % key, '-g') %>
-${key.upper()}='${value}'
+{%- set pget = salt['pillar.get'] -%}
+{%- set key = 'ntpd_opts' -%}
+{%- set value = pget('ntp:%s' % key, '-g') -%}
+{{ key.upper() }}='{{ value }}'
 
