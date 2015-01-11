@@ -10,7 +10,6 @@ include:
   - default.pager
   - default.editor
   - default.pkgsets
-  - default.ssh
   - default.xxdiff
 
 
