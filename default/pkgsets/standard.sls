@@ -78,15 +78,6 @@ default-packages:
 {% endif %}
 
   
-{% if pget('pkgsets:acpi_packages', False): %}
-acpi_packages:
-  pkg.installed:
-    - pkgs:
-      - acpid
-      - acpi-support-base
-{% endif %}
-
-  
 {% if pget('pkgsets:base_hardware', False): %}
 base-hardware:
   pkg.installed:
