@@ -23,3 +23,4 @@ for resource_id in resources:
     source_hash = resources[resource_id]['source_hash']
     check_downloaded_file(resource_id, filename, source, source_hash)
     
+
