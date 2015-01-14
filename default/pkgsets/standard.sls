@@ -10,15 +10,15 @@ include:
 base-admin-tools:
   pkg.installed:
     - pkgs:
-      - acl 
-      - atop 
+      - acl
       - attr 
       - bash-completion 
       - bsdtar 
       - bzip2 
       - cabextract 
       - fdupes 
-      - gawk 
+      - gawk
+      - hardlink
       - htop 
       - iotop 
       - keychain 
@@ -49,7 +49,6 @@ debian_admin_tools:
       - dctrl-tools
       - debconf-utils
       - debian-goodies
-      - dselect
       - reportbug
 {% endif %}
 
