@@ -3,6 +3,7 @@
 
 include:
   - default.base
+  - default.etckeeper
   - default.sysdefaults
   - default.timezone
   - default.adduser
@@ -10,6 +11,7 @@ include:
   - default.pager
   - default.editor
   - default.pkgsets
+  - default.skeleton
   - default.xxdiff
 
 
