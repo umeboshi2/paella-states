@@ -1,0 +1,219 @@
+# -*- mode: yaml -*-
+{% load_yaml as named_toolset_definitions %}
+base-tools:
+  - bash-completion 
+  - gawk
+  - gnupg-agent
+  - most 
+  - openssh-client 
+  - keychain 
+  - pinentry-curses
+  - screen
+  
+base-persistent-tools:
+  - logcheck 
+  - etckeeper
+  
+system-monitor-tools:
+  - htop 
+  - iotop 
+  - lsof 
+  - ltrace 
+  - strace
+
+serial-comm-tools:
+  - minicom 
+  - lrzsz
+  
+archive-and-compression-tools:
+  - bsdtar 
+  - bzip2 
+  - cabextract 
+  - p7zip-full 
+  - pbzip2 
+  - pigz 
+file-management-tools:
+  - acl
+  - attr 
+  - fdupes 
+  - hardlink
+  - rsync
+  
+system-management-tools:
+  - members 
+  - slay 
+  - sysv-rc-conf
+  
+# some of these tools should
+# already be installed, listing
+# packages here will act as
+# assertions.
+debian-admin-tools:
+  - apt-listchanges
+  - dctrl-tools
+  - debconf-utils
+  - debian-goodies
+  - reportbug
+  
+acpi-support-tools:
+  - acpid
+  - acpi-support-base
+  - acpitool
+  
+default-text-packages:
+  - ascii
+  - bible-kjv
+  - bible-kjv-text
+  - cowsay
+  - fortunes
+  
+simple-unsorted:  
+  - ntp
+  - pgpdump
+  
+base-hardware-tools:
+  - dmidecode
+  - hddtemp
+  - lm-sensors
+  - sdparm
+  - usbutils
+  
+firmware-packages:
+  - firmware-linux
+  - firmware-linux-nonfree
+  
+laptop-hardware-tools:
+  - hibernate
+  - fancontrol
+  
+base-development-tools:
+  - git-core
+  # it seems that pkg-config is used more and more
+  - pkg-config
+  
+base-debian-dev-tools:
+  - devscripts
+  - cdbs
+  
+base-python-development:
+  - python-dev
+  - python-requests
+  - virtualenvwrapper
+  - python-stdeb
+  
+# these packages change from release
+# to release and should be tracked differently
+#python-libdev-wheezy:
+#  - libpq-dev
+#  - libjpeg62-dev 
+#  - libpng12-dev 
+#  - libfreetype6-dev 
+#  - liblcms1-dev 
+#  - libxml2-dev 
+#  - libxslt1-dev 
+python-libdev-jessie:
+  - libpq-dev 
+  - libjpeg-dev 
+  - libpng12-dev 
+  - libfreetype6-dev 
+  - liblcms2-dev 
+  - libxml2-dev 
+  - libxslt1-dev
+  
+wimlib-build-depends:
+  - autoconf
+  - automake
+  - libtool
+  - debhelper
+  - autotools-dev
+  - pkg-config
+  - libfuse-dev
+  - libxml2-dev
+  - libssl-dev
+  - ntfs-3g-dev
+  - libattr1-dev
+  - attr
+  
+emu-packages-wheezy:
+  - e-uae
+  - freesci
+  
+emu-packages-i386:
+  - dgen
+  - zsnes
+  
+emu-packages:
+  - atari800
+  - dosbox
+  - dosemu
+  - fuse-emulator-common
+  - fuse-emulator-gtk
+  - fuse-emulator-utils
+  - scummvm
+  - sidplay-base
+  - spectemu-common
+  - spectemu-x11
+  - spectrum-roms
+  - stella
+  - vice
+  - xtrs
+scummvm-games:
+  - beneath-a-steel-sky
+  - flight-of-the-amazon-queen
+good-games:
+  - freeciv-client-extras
+  - freeciv-client-gtk
+  - freeciv-sound-standard
+  - openttd
+  - openttd-opensfx
+  - singularity
+  - wesnoth
+other-good-games:
+  - fillets-ng
+  - gargoyle-free
+  - heroes-sdl
+  - kobodeluxe
+  - pingus
+  - scid
+  - scid-rating-data
+  - lincity
+  - bb
+  - glob2
+  - noiz2sa
+  - dopewars
+  - pysolfc
+  - pysolfc-cardsets
+  - scid
+  - scid-rating-data
+  - uqm
+  - uqm-voice
+  
+test-documents:
+  - bash-doc
+  - bind9-doc
+  - bzip2-doc
+  - coffeescript-doc
+  - salt-doc
+  - debconf-doc
+  - debdelta-doc
+  - debian-reference-en
+  - diffutils-doc
+  - diveintopython
+  - fai-doc
+  - git-doc
+  - gitmagic
+  - gnutls-doc
+  - grass-doc
+  
+nonfree-docs:
+  - doc-rfc-std
+  - glibc-doc-reference
+  - gmp-doc
+  
+xfce-desktop-packages:
+  - task-xfce-desktop
+
+plymouth-packages:
+  - plymouth-themes-all
+{% endload %}
+  
