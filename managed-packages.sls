@@ -4,7 +4,7 @@
 {#
 {% set definitions = pget('named-toolset-definitions', {}) %}
 #}
-{% set definitions = named-toolset-definitions %}
+{% set definitions = named_toolset_definitions %}
 {% set toolsets = pget('system:toolsets', {}) %}
 {% for toolset in toolsets -%}
   {# we do access without dict.get to fail if toolset isn't defined #}
