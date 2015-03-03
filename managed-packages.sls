@@ -1,16 +1,14 @@
 # -*- mode: yaml -*-
 {% set pget = salt['pillar.get'] %}
 {% from 'named-toolsets.jinja' import named_toolset_definitions %}
-{#
-{% set definitions = pget('named-toolset-definitions', {}) %}
-#}
 {% set definitions = named_toolset_definitions %}
 {% set toolsets = pget('system:toolsets', {}) %}
+
 {# test combining toolsets #}
 {% if pget('system:toolsets_combined', False) %}
 {% set packagelist = [] %}
 {% for toolset in toolsets %}
-{% packagelist.append(definitions[toolset]) %}
+{% packagelist.extend(definitions[toolset]) %}
 {% endfor %}
 main-combined-toolsets:
   pkg.installed:
