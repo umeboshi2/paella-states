@@ -8,7 +8,7 @@
 {% if pget('system:toolsets_combined', False) %}
 {% set packagelist = [] %}
 {% for toolset in toolsets %}
-{% packagelist.extend(definitions[toolset]) %}
+{% do packagelist.extend(definitions[toolset]) %}
 {% endfor %}
 main-combined-toolsets:
   pkg.installed:
