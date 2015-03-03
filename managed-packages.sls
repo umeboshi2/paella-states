@@ -6,6 +6,20 @@
 #}
 {% set definitions = named_toolset_definitions %}
 {% set toolsets = pget('system:toolsets', {}) %}
+{# test combining toolsets #}
+{% if pget('system:toolsets_combined', False) %}
+{% set packagelist = [] %}
+{% for toolset in toolsets %}
+{% packagelist.append(definitions[toolset]) %}
+{% endfor %}
+main-combined-toolsets:
+  pkg.installed:
+    {% for package in packagelist %}
+    - {{ package }}
+    {% endfor %}
+{% endif %}
+
+
 {% for toolset in toolsets -%}
   {# we do access without dict.get to fail if toolset isn't defined #}
   {% set packagelist = definitions[toolset] %}
