@@ -14,9 +14,10 @@
 {% endfor %}
 main-combined-toolsets:
   pkg.installed:
-    {% for package in packagelist %}
-    - {{ package }}
-    {% endfor %}
+    - pkgs:
+      {% for package in packagelist %}
+      - {{ package }}
+      {% endfor %}
 {% endif %}
 
 
