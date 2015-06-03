@@ -16,7 +16,7 @@ def check_downloaded_file(id, filename, source, source_hash,
                    makedirs=True,
                    **kwarg)
 
-resources = __pillar__.get('internet_resources') 
+resources = __pillar__.get('internet_resources', {}) 
 for resource_id in resources:
     filename = resources[resource_id]['name']
     source = resources[resource_id]['source']
