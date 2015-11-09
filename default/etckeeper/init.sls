@@ -2,7 +2,7 @@
 {% set pget = salt['pillar.get'] %}
 
   
-{% if pget('etckeeper:install_etckeeper_packages', True): %}
+{% if pget('etckeeper:install_etckeeper_packages', False): %}
 etckeeper-packages:
   pkg.installed:
     - pkgs:
